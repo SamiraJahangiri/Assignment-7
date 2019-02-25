@@ -1,0 +1,10 @@
+#in the first step I choose a dataset with title of woman from the  R datasets package, a dataframe with 15 observations on 2 variables, unsing the following command:
+mydata= dataset::woman 
+#in the second step I should investigate whether the generic function is applicable to the dataset or not  
+summary(mydata) #or summary.data.frame(mydata) #summary() is a generic function, I passed mydata to summary(), and mydata is then passed to a specific method called summary.data.frame(), which provides a numeric summart of all variables in my dataframe.
+model1= lm(height ~ weight, data= mydata)
+class(model1)
+summary(model1) #in the third step I passed mydata to lm class and summary() calls the summary.lm() method, the generic.class (as summary.lm here) is a S3 class 
+class(mydata)="american_women"
+S4_class= setClass("ameican_women", representation(height= "numeric", weight= "numeric"))
+S4_class #in the fourth step I defined the S4 class for my data set using setClass function.
